@@ -9,8 +9,8 @@ export function Ach({ title, org, location, desc }) {
     target: targetRef,
     offset: ["start end", "end start"],
   });
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
   return (
     <motion.div
@@ -43,6 +43,14 @@ export function Ach({ title, org, location, desc }) {
 }
 
 export default function Achievements() {
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "end start"],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+
   return (
     <div className="w-screen flex flex-col items-center justify-center py-20">
       <div className="mb-16 text-center">
@@ -50,6 +58,8 @@ export default function Achievements() {
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
+          ref={targetRef}
+          style={{ opacity, scale }}
           className="font-martian lowercase font-normal text-brand-dark/75 text-sm py-2"
         >
           a few of the
@@ -58,6 +68,8 @@ export default function Achievements() {
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.1 }}
+          ref={targetRef}
+          style={{ opacity, scale }}
           className="font-outfit font-semibold text-5xl"
         >
           Things I'm Proud of

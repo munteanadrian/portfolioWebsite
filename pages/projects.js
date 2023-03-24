@@ -22,8 +22,8 @@ export function Project({
     target: targetRef,
     offset: ["start end", "end start"],
   });
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
   return (
     <motion.div
@@ -34,8 +34,6 @@ export function Project({
       transition={{ duration: 0.3 }}
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 1 }}
-      // whileInView={{ opacity: 1, scale: 1 }}
-      // transition={{ duration: 0.3 }}
       className="w-10/12 md:w-8/12 mx-auto bg-brand-light shadow-sm shadow-black text-brand-dark rounded-2xl text-center md:text-left flex flex-col md:flex-row items-center py-7"
     >
       <div className="w-9/12 md:w-3/12 md:mx-8 md:my-auto mb-7">
@@ -64,17 +62,9 @@ export default function Projects() {
     target: targetRef,
     offset: ["start end", "end start"],
   });
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const xTitle = useTransform(
-    scrollYProgress,
-    [0, 0.2, 0.8, 1],
-    [-100, 0, 0, 100]
-  );
-  const xSubtitle = useTransform(
-    scrollYProgress,
-    [0, 0.2, 0.8, 1],
-    [100, 0, 0, -100]
-  );
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const xTitle = useTransform(scrollYProgress, [0, 0.3], [-100, 0]);
+  const xSubtitle = useTransform(scrollYProgress, [0, 0.3], [100, 0]);
 
   return (
     <div className="bg-brand-dark w-screen py-14">

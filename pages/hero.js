@@ -30,11 +30,11 @@ export default function Hero() {
         </span>
       </motion.div>
 
-      <motion.div className="mx-auto mt-36 md:m-auto">
+      <motion.div className="mx-6 md:mx-auto mt-36 md:m-auto">
         <motion.h3
           initial={{ opacity: 0, x: "100%" }}
           animate={{ opacity: 1, x: "0%" }}
-          className="text-brand-light font-martian text-lg lowercase mt-16 md:-mt-2"
+          className="text-brand-light font-martian text-lg lowercase mt-12 md:-mt-2"
         >
           Hello, I am
         </motion.h3>

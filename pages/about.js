@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, animate } from "framer-motion";
 import { useRef } from "react";
 import avatar from "../public/images/me.jpg";
 import Image from "next/image";
@@ -8,42 +8,26 @@ export default function About() {
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start end", "end start"],
+    offset: ["start end", "end center"],
   });
-  const opacity = useTransform(
-    scrollYProgress,
-    [0, 0.1, 0.85, 1],
-    [0, 1, 1, 0]
-  );
+  const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
-  const xTitle = useTransform(
-    scrollYProgress,
-    [0, 0.15, 0.85, 1],
-    [100, 0, 0, 200]
-  );
-  const xSubtitle = useTransform(
-    scrollYProgress,
-    [0, 0.05, 0.85, 1],
-    [100, 0, 0, 200]
-  );
-  const xText = useTransform(
-    scrollYProgress,
-    [0, 0.25, 0.85, 1],
-    [100, 0, 0, 200]
-  );
-  const xImage = useTransform(
-    scrollYProgress,
-    [0, 0.2, 0.8, 1],
-    [-100, 0, 0, -100]
-  );
+  const xTitle = useTransform(scrollYProgress, [0, 0.15], [100, 0]);
+  const xSubtitle = useTransform(scrollYProgress, [0, 0.05], [100, 0]);
+  const xText = useTransform(scrollYProgress, [0, 0.25], [100, 0]);
+  const xImage = useTransform(scrollYProgress, [0, 0.2], [-100, 0]);
 
   return (
     <div className="bg-dot-pattern w-screen px-7 pt-7 overflow-hidden">
       <div className="flex md:flex-col items-center md:justify-center md:h-screen">
         <div className="text-center md:text-left flex flex-col md:flex-row md:gap-20 items-center">
           <motion.div
-            ref={targetRef}
-            style={{ opacity, x: xImage }}
+            // ref={targetRef}
+            // style={{ opacity, x: xImage }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            animation={{ animate }}
+            transition={{ duration: 0.3 }}
             className="w-60 md:w-80 mx-auto md:mx-px"
           >
             <Image
@@ -62,7 +46,7 @@ export default function About() {
             <motion.h2
               ref={targetRef}
               style={{ opacity, x: xTitle }}
-              className="text-brand-dark text-5xl font-outfit font-semibold mb-5"
+              className="text-brand-dark text-5xl font-outfit font-semibold mb-8 md:mb-5"
             >
               About Me
             </motion.h2>
@@ -70,16 +54,15 @@ export default function About() {
               ref={targetRef}
               style={{ opacity, x: xText }}
               transition={{ delay: 1 }}
-              className="text-brand-dark text-lg font-outfit leading-8 font-normal mb-14 md:max-w-prose"
+              className="text-brand-dark mx-4 text-lg font-outfit leading-8 font-normal mb-14 md:max-w-prose"
             >
-              Hi there! Welcome to my portfolio. I'm Adrian, a 22-year-old
-              computer science student from Romania, and I'm excited to tell you
-              a little bit more about myself. Ever since I was a kid, I've been
-              fascinated by tech. I'd spend hours tinkering with them, trying to
-              figure out how they worked and how I could make them do cool
-              things. Fast forward a few years, and now I'm here. When I'm not
-              coding, you can usually find me exploring stuff. I like history
-              and I love traveling.
+              Hi there! I'm Adrian, a 22-year-old computer science student from
+              Romania, and I'm excited to tell you a little bit more about
+              myself. Ever since I was a kid, I've been fascinated by tech. I'd
+              spend hours tinkering with them, trying to figure out how they
+              worked and how I could make them do cool things. Fast forward a
+              few years, and now I'm here. When I'm not coding, you can usually
+              find me exploring stuff. I like history and I love traveling.
               <br />
               <br />I made this website to showcase my work and skills in a more
               interesting format than a boring old resume. You'll find my

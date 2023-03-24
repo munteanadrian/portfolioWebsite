@@ -5,7 +5,7 @@ export default function Navbar() {
     <motion.div
       initial={{ opacity: 0, y: "-100%" }}
       animate={{ opacity: 1, y: "0%" }}
-      className="text-brand-light absolute px-7 md:px-14 py-10 md:py-8 flex w-screen justify-between items-center"
+      className="text-brand-light absolute px-7 md:px-14 py-6 md:py-8 flex w-screen justify-between items-center"
     >
       <motion.h2
         whileHover={{ scale: 1.1 }}
