@@ -12,11 +12,42 @@
   src: url("../public/fonts/Martian.ttf");
 }
 
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
 
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 /* Loader */
+
+.gap-custom {
+  gap: 75rem;
+}
+
+.w-custom {
+  width: 95rem;
+}
+
+.top-custom-icons {
+  top: 32.5rem;
+}
+
+.top-custom-text {
+  top: 40rem;
+}
 
 .loader {
   display: flex;

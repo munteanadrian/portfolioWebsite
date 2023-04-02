@@ -10,6 +10,8 @@ import LoadingPage from "./loadingPage.js";
 import { useEffect, useState } from "react";
 import Achievements from "./Achievements.js";
 
+//
+
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
@@ -28,12 +30,14 @@ export default function Home() {
 
       {loading === false ? (
         <main>
-          <Hero />
-          <About />
-          <Achievements />
-          {/* <Skills /> */}
-          <Projects />
-          <Contact />
+          <div>
+            <Hero />
+            <About />
+            <Projects />
+            <Achievements />
+            {/* <Skills /> */}
+            <Contact />
+          </div>
         </main>
       ) : (
         <LoadingPage />

@@ -1,26 +1,16 @@
 import { BsFillAwardFill } from "react-icons/bs";
 import React from "react";
-import { animate, motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 export function Ach({ title, org, location, desc }) {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-
   return (
     <motion.div
-      initial={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, scale: 0 }}
+      whileInView={{ opacity: 1, scale: 1 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 1 }}
       transition={{ duration: 0.3 }}
-      ref={targetRef}
-      style={{ opacity, scale }}
-      className="bg-brand-dark text-brand-light shadow-lg shadow-gray-400 py-5 md:pt-5 md:spb-2 px-7 rounded-lg flex flex-col items-center justify-center gap-2 text-center"
+      className="bg-brand-dark text-brand-light shadow-lg shadow-gray-400 py-5 px-7 md:px-3 lg:px-10 rounded-lg flex flex-col items-center justify-center gap-2 text-center"
     >
       <span className="text-2xl pb-2">
         <BsFillAwardFill />
@@ -28,13 +18,15 @@ export function Ach({ title, org, location, desc }) {
       <h3 className="text-2xl pb-2 font-outfit font-semibold lowercase">
         {title}
       </h3>
-      <span className="text-sm font-martian font-normal">
+      <div className="text-sm font-martian font-normal flex flex-col gap-1">
         {org}
         <br />
-        &lt;
-        <location className="text-xs font-martian">{location}</location>
-        &gt;
-      </span>
+        <div>
+          &lt;
+          <location className="text-xs font-martian">{location}</location>
+          &gt;
+        </div>
+      </div>
       <span className="text-md font-outfit max-w-xs py-2 trailing-8 lowercase">
         {desc}
       </span>
@@ -43,23 +35,13 @@ export function Ach({ title, org, location, desc }) {
 }
 
 export default function Achievements() {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-
   return (
-    <div className="w-screen flex flex-col items-center justify-center py-20">
+    <div className="w-screen flex flex-col items-center justify-center py-20 ">
       <div className="mb-16 text-center">
         <motion.span
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
-          ref={targetRef}
-          style={{ opacity, scale }}
           className="font-martian lowercase font-normal text-brand-dark/75 text-sm py-2"
         >
           a few of the
@@ -68,21 +50,19 @@ export default function Achievements() {
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.1 }}
-          ref={targetRef}
-          style={{ opacity, scale }}
           className="font-outfit font-semibold text-5xl"
         >
           Things I'm Proud of
         </motion.h2>
       </div>
 
-      <div className="w-11/12 flex flex-wrap flex-col md:flex-row items-stretch justify-center gap-7 md:gap-16">
+      <div className="w-11/12 flex flex-wrap flex-col lg:flex-row items-stretch justify-center gap-7  lg:max-w-7xl">
         <Ach
           title={"Bronze medal"}
           org={"MOS World Championship"}
           location={"New York, NY"}
           desc={
-            "I represented Romania's national team and won the bronze medal worldwide"
+            "I represented Romania's national team and won the bronze medal in the finals"
           }
           className="flex-none"
         />
@@ -91,16 +71,16 @@ export default function Achievements() {
           org={"State University of New York"}
           location={"Cortland, NY"}
           desc={
-            "I was awarded the Babes-Bolyai University's scholarship for an exchange semester"
+            "I was awarded the Babes-Bolyai University's scholarship for an exchange semester at SUNY Cortland"
           }
           className="flex-1"
         />
         <Ach
-          title={"Volunteer teacher"}
+          title={"Teacher's assistant"}
           org={"Tiberiu Popoviciu High School"}
           location={"Cluj-Napoca, RO"}
           desc={
-            "I volunteered as a teacher for ICT classes and helped students prepare for competitions and the ICT Olympiad."
+            "I helped out with teaching students ICT classes and preparing for competitions and the ICT Olympiad"
           }
           className="w-6/12"
         />
@@ -109,7 +89,7 @@ export default function Achievements() {
           org={"MOS World Championship"}
           location={"Bucharest, RO"}
           desc={
-            "I won the national competition in Bucharest and moved on to represent Romania at the world championship in New York"
+            "I won the national competition in Bucharest and represented my country at the world finals in New York City"
           }
           className="w-6/12"
         />
@@ -118,7 +98,7 @@ export default function Achievements() {
           org={"Olympiad in Information Technology"}
           location={"Cluj-Napoca, RO"}
           desc={
-            "I won the second place at the regional stage of the ICT Olympiad"
+            "I won the second place at the regionals for the information and communications technology Olympiad in Cluj"
           }
           className="w-6/12"
         />
