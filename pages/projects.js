@@ -83,7 +83,7 @@ export function Project({ project }) {
                   <></>
                 )}
               </h3>
-              <div className="flex flex-row gap-3 flex-wrap pb-10 lg:pb-0 py-3 justify-center lg:justify-start">
+              <div className="flex flex-row gap-3 flex-wrap pb-10 lg:pb-2 py-3 justify-center lg:justify-start">
                 {project.tech.map((current, index) => (
                   <Technology key={index} name={current} />
                 ))}
