@@ -101,7 +101,12 @@ export default function Hero() {
 
             {/* Scroller */}
 
-            <motion.div className="border-brand-light border w-5 h-10 rounded-3xl mx-auto mt-20 md:mt-20 md:mx-0 lg:mt-10">
+            <motion.div
+              initial={{ opacity: 0, x: "100%" }}
+              animate={{ opacity: 1, x: "0%" }}
+              transition={{ delay: 0.3 }}
+              className="border-brand-light border w-5 h-10 rounded-3xl mx-auto mt-20 md:mt-20 md:mx-0 lg:mt-10"
+            >
               <motion.div
                 animate={{ y: ["0%", "100%", "0%"] }}
                 transition={{ duration: 1, delay: 0, repeat: Infinity }}
