@@ -109,19 +109,36 @@ export function Project({ project }) {
               </div>
             </div>
             <div className="flex gap-4">
-              <motion.a
-                whileHover={{
-                  scale: 1.02,
-                  backgroundColor: "#121212",
-                  color: "#FFFFFF",
-                }}
-                className="border-2 cursor-pointer border-black rounded-lg mx-auto lg:mx-0 py-2 px-4 flex gap-2 items-center mt-2 mb-4 lg:mb-0 lg:mt-0"
-                href={project.github}
-                target="_blank"
-              >
-                <AiFillGithub className="text-xl" />
-                <h1 className="font-semibold">See on Github</h1>
-              </motion.a>
+              {project.githubFront && (
+                <motion.a
+                  whileHover={{
+                    scale: 1.02,
+                    backgroundColor: "#121212",
+                    color: "#FFFFFF",
+                  }}
+                  className="border-2 cursor-pointer border-black rounded-lg mx-auto lg:mx-0 py-2 px-4 flex gap-2 items-center mt-2 mb-4 lg:mb-0 lg:mt-0"
+                  href={project.githubFront}
+                  target="_blank"
+                >
+                  <AiFillGithub className="text-xl" />
+                  <h1 className="font-semibold">Frontend</h1>
+                </motion.a>
+              )}
+              {project.githubBack && (
+                <motion.a
+                  whileHover={{
+                    scale: 1.02,
+                    backgroundColor: "#121212",
+                    color: "#FFFFFF",
+                  }}
+                  className="border-2 cursor-pointer border-black rounded-lg mx-auto lg:mx-0 py-2 px-4 flex gap-2 items-center mt-2 mb-4 lg:mb-0 lg:mt-0"
+                  href={project.githubBack}
+                  target="_blank"
+                >
+                  <AiFillGithub className="text-xl" />
+                  <h1 className="font-semibold">Backend</h1>
+                </motion.a>
+              )}
               {/* <motion.div
                 whileHover={{
                   backgroundColor: "#05A",
@@ -156,14 +173,15 @@ export default function Projects() {
         "Recognizes game states (illegal moves, win, draw)",
       ],
       tech: ["Spring Web", "Axios", "React", "Framer-Motion", "TailwindCSS"],
-      github: "https://github.com/munteanadrian/tictactoe",
+      githubFront: "https://github.com/munteanadrian/tictactoe-front",
+      githubBack: "https://github.com/munteanadrian/tictactoe-back",
       site: "https://adrianmuntean.tech/",
       coverImg: "/images/projects/tictactoeCover.png",
       img: "/images/projects/tictactoe.png",
     },
     {
       name: "BCUBOT",
-      desc: "A bot that I made and used for automating booking at a seat at my university's main library during exam session. Bookings had to be made on an old website with long wait times and errors and I was spending up to an hour and a half per day getting a seat for the next day, so I automated it.",
+      desc: "A bot I made and used for automating booking at a seat at my university's main library during exam session. Bookings had to be made on an old website with long wait times and errors and I was spending up to an hour and a half per day getting a seat for the next day, so I automated it.",
       frontFeatures: [
         "NextJS with TailwindCSS and Framer-Motion",
         "Responsive UI for small/medium/large screens",
@@ -183,7 +201,8 @@ export default function Projects() {
         "Framer-Motion",
         "TailwindCSS",
       ],
-      github: "https://github.com/munteanadrian/bcubot",
+      githubFront: "https://github.com/munteanadrian/bcubot-front",
+      githubBack: "https://github.com/munteanadrian/bcubot-back",
       site: "https://adrianmuntean.tech/",
       coverImg: "/images/projects/bcubotCoverWhite.png",
       img: "/images/projects/bcubot2.png",
@@ -211,7 +230,8 @@ export default function Projects() {
         "Framer-Motion",
         "TailwindCSS",
       ],
-      github: "https://github.com/munteanadrian/jobhive",
+      githubFront: "https://github.com/munteanadrian/jobhive-front",
+      githubBack: "https://github.com/munteanadrian/jobhive-back",
       site: "https://adrianmuntean.tech/",
       coverImg: "/images/projects/jobhiveCover.png",
       img: "/images/projects/jobhive.png",
@@ -234,7 +254,8 @@ export default function Projects() {
         "TailwindCSS",
         "HTML / CSS / JS",
       ],
-      github: "https://github.com/munteanadrian/portfolioWebsite",
+      githubFront: "https://github.com/munteanadrian/portfolioWebsite",
+      githubBack: null,
       site: "https://adrianmuntean.tech/",
       coverImg: "/images/projects/portfolioCover.png",
       img: "/images/projects/portfolio.png",
@@ -261,7 +282,8 @@ export default function Projects() {
         "Spring Web + Data JPA",
         "MySQL",
       ],
-      github: "https://github.com/munteanadrian/hustl",
+      githubFront: "https://github.com/munteanadrian/hustl-front",
+      githubBack: "https://github.com/munteanadrian/hustl-back",
       site: "https://adrianmuntean.tech/",
       coverImg: "/images/projects/hustlCover2.png",
       img: "/images/projects/hustlLarge.png",
