@@ -78,7 +78,10 @@ export default function Hero() {
                 }}
                 transition={{ duration: 3.5, repeat: Infinity }}
               >
-                <a href="https://github.com/munteanadrian" target="_blank">
+                <a
+                  href="https://www.linkedin.com/in/muntean-adrian"
+                  target="_blank"
+                >
                   <BsLinkedin className="ml-12 my-8 md:my-3" />
                 </a>
               </motion.div>
@@ -105,7 +108,7 @@ export default function Hero() {
               initial={{ opacity: 0, x: "100%" }}
               animate={{ opacity: 1, x: "0%" }}
               transition={{ delay: 0.3 }}
-              className="border-brand-light border w-5 h-10 rounded-3xl mx-auto mt-20 md:mt-20 md:mx-0 lg:mt-10"
+              className="border-brand-light border w-5 h-10 rounded-3xl mx-auto mt-50 md:mx-0 lg:mt-10"
             >
               <motion.div
                 animate={{ y: ["0%", "100%", "0%"] }}

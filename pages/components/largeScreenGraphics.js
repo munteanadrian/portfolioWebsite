@@ -53,7 +53,7 @@ export default function LargeScreenGraphics() {
           }}
           transition={{ duration: 3.5, repeat: Infinity }}
         >
-          <a href="https://github.com/munteanadrian" target="_blank">
+          <a href="https://www.linkedin.com/in/muntean-adrian" target="_blank">
             <BsLinkedin className="ml-12 my-8 md:my-3" />
           </a>
         </motion.div>

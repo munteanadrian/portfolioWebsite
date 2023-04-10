@@ -30,14 +30,12 @@ export default function Home() {
 
       {loading === false ? (
         <main>
-          <div>
-            <Hero />
-            <About />
-            <Projects />
-            <Achievements />
-            {/* <Skills /> */}
-            <Contact />
-          </div>
+          <Hero />
+          <About />
+          <Projects />
+          <Achievements />
+          {/* <Skills /> */}
+          <Contact />
         </main>
       ) : (
         <LoadingPage />
